@@ -8,8 +8,15 @@ get '/' do
   erb(:home)
 end
 
-get '/game/:p1/:p2' do
-  new_game = Game.new(params[:p1].to_s, params[:p2].to_s)
-  @result = new_game.play()
+# get '/game/:hand1/:hand2' do
+#   @result = Game.play(params[:hand1], params[:hand2])
+#   #binding.pry
+#   erb(:display_result)
+# end
+
+get '/game/:hand1/random' do
+  hand1 = params[:hand1]
+  hand2 = Game.random_choice
+  @result = Game.play(hand1, hand2)
   erb(:display_result)
 end

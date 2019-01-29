@@ -1,26 +1,25 @@
 class Game
 
-  attr_accessor :player, :opponent
+  def self.play(hand1, hand2)
+       return "It's a draw!" if hand1 == hand2
 
-  def initialize(player, opponent)
-    @player = player
-    @opponent = opponent
-    @game = [@player, @opponent]
-    @result
-    @p1
-    @p2
-  end
+       win_conditions = {
+           "rock" => "scissors",
+           "scissors" => "paper",
+           "paper" => "rock"
+       }
 
-  def play()
-    @p1 = @game[0][1].to_s
-    @p2 = @game[1][1].to_s
+       hand_one_beats = win_conditions[hand1]
 
-    if @p1 == @p2
-      return @result = "Draw"
-    else
-      return @result = "Not a draw"
-    end
+       if hand_one_beats == hand2
+           return "#{hand1.capitalize} wins!"
+       else
+           return "#{hand2.capitalize} wins!"
+       end
+   end
 
-  end
+   def self.random_choice
+     return %w{rock paper scissors}.sample
+   end
 
 end

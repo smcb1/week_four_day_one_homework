@@ -1,8 +1,23 @@
 body {
   background-color: #0084b4;
+  background-image: "url(images/banner.jpg)";
   text-decoration-color: white;
+}
+
+* {
+font-family: 'PT Sans', sans-serif;
 }
 
 h1 {
   color: white;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-around;
 }
